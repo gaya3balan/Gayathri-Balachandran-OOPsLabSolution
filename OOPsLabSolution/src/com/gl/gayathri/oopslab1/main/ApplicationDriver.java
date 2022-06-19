@@ -1,28 +1,42 @@
-package com.gl.gayathri.oopslab1.service;
+package com.gl.gayathri.oopslab1.main;
 
 import java.util.Scanner;
 import com.gl.gayathri.oopslab1.businessobject.*;
+import com.gl.gayathri.oopslab1.service.CredentialService;
 
 public class ApplicationDriver{
 	
 	final static String applicantFirstName="Gayathri";    // set the firstname 
 	final static String applicantLastName="Balachandran"; //set the lastname
-    static char[] applicantPassword ;
-    static String applicantEmail ;
-    static Employee employeeName ;
-    static CredentialService ob;
-    static Scanner sc;
+	
+	//implementing as static as used to call run method recursively for invalid options 
+	//entered by user to give chance to user to enter correct option 1 to 4 again.
+	                       
+	
+    static char[] applicantPassword ; //implementing as static as used to call run method recursively for invalid options by user
+                                      //to give chance to user to enter correct option 1 to 4 again.
+    static String applicantEmail ; //implementing as static as used to call run method recursively for invalid options by user
+                                   //to give chance to user to enter correct option 1 to 4 again.
+    static Employee employeeName ; //implementing as static as used to call run method recursively for invalid options by user
+                                   //to give chance to user to enter correct option 1 to 4 again.
+    static CredentialService ob; //implementing as static as used to call run method recursively for invalid options by user
+                                  //to give chance to user to enter correct option 1 to 4 again.
+    static Scanner sc;//implementing as static as used to call run method recursively for invalid options by user
+                     //to give chance to user to enter correct option 1 to 4 again.
 
+    //Main Method
     public static void main(String[] args) {
         
     	employeeName = new Employee(applicantFirstName,applicantLastName); // parameterized constructor of Employee class 
     	 ob = new CredentialService();  //create object to instantiate CredentialService class 
     	 sc = new Scanner(System.in);        //instantiate Scanner class by created object sc
-        ApplicationDriver.run();
+        run();
         
     }
-        
-    public static void run() {
+       
+    //Run Method implemented so that this logic can called in recursion when user enters invalid choice and give a chance
+    //enter the correct option. 
+    private static void run() {
     		
 	    System.out.println("Please enter the department from the following"  );  //give options to users to choose from 
 	    System.out.println("1. Technical ");
